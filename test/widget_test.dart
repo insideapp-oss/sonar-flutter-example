@@ -11,20 +11,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sonar_flutter_example/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+  testWidgets('MyHomePage widget test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MaterialApp(
+      home: MyHomePage(title: 'Test Title'),
+    ));
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Verify that the title is correct
+    expect(find.text('Test Title'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Verify that the main text is present
+    expect(find.text('Like sonar-flutter plugin?'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Verify that both buttons are present
+    expect(find.text('Give it a star on GitHub'), findsOneWidget);
+    expect(find.text('Sponsor us on GitHub'), findsOneWidget);
+
+    // Verify that there are two ElevatedButtons
+    expect(find.byType(ElevatedButton), findsNWidgets(2));
   });
 }
