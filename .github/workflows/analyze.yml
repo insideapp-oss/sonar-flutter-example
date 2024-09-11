@@ -30,9 +30,13 @@ jobs:
       - name: 🧪 Run Tests
         run: flutter test --machine --coverage > tests.output
 
+      - name: 🛠️ Install sonar-scanner
+        run: |
+          sudo apt-get install -y openjdk-11-jdk
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477-linux-x64.zip
+          unzip sonar-scanner-cli-6.1.0.4477-linux-x64.zip
+          export PATH=$PATH:$PWD/sonar-scanner-6.1.0.4477-linux/bin
+
       - name: 🪲 Run Sonar
-        uses: sonarsource/sonarqube-scan-action@master
-        env:
-          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
-          SONAR_HOST_URL: ${{secrets.SONAR_HOST_URL}}
+        run: sonar-scanner -Dsonar.token=${{secrets.SONAR_TOKEN}} -Dsonar.host.url=${{secrets.SONAR_HOST_URL}}
 
