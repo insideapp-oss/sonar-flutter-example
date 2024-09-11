@@ -32,10 +32,10 @@ jobs:
 
       - name: 🪲 Run Sonar
         run: |
-          sudo apt-get install -y openjdk-11-jdk
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477-linux-x64.zip
-          unzip sonar-scanner-cli-6.1.0.4477-linux-x64.zip
-          ./sonar-scanner-6.1.0.4477-linux/binsonar-scanner \
+          sudo apt-get install -y openjdk-17-jdk
+          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477.zip
+          unzip sonar-scanner-cli-6.1.0.4477.zip
+          ./sonar-scanner-6.1.0.4477/bin/sonar-scanner \
             -Dsonar.token=${{secrets.SONAR_TOKEN}} \
             -Dsonar.host.url=${{secrets.SONAR_HOST_URL}}
 
