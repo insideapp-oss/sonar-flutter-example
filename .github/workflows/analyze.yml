@@ -30,11 +30,14 @@ jobs:
       - name: 🧪 Run Tests
         run: flutter test --machine --coverage > tests.output
 
+      - name: 🍵 Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: 🪲 Run Sonar
         run: |
-          sudo apt-get install -y openjdk-17-jdk
-          sudo update-alternatives --set java /usr/lib/jvm/java-17-openjdk-amd64/bin/java
-          export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477.zip
           unzip sonar-scanner-cli-6.1.0.4477.zip
           ./sonar-scanner-6.1.0.4477/bin/sonar-scanner \
