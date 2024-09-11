@@ -41,6 +41,6 @@ jobs:
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.1.0.4477.zip
           unzip sonar-scanner-cli-6.1.0.4477.zip
           ./sonar-scanner-6.1.0.4477/bin/sonar-scanner \
-            -Dsonar.token=${{secrets.SONAR_TOKEN}} \
+            -Dsonar.login=${{secrets.SONAR_TOKEN}} \
             -Dsonar.host.url=${{secrets.SONAR_HOST_URL}}
 
