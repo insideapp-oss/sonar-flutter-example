@@ -52,7 +52,7 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 _launchUrl(Uri.parse(
-                    'https://github.com/insideapp-oss/sonar-flutter'));
+                    'https://github.com/insideapp-fr/sonar-flutter'));
               },
               child: const Text('Give it a star on GitHub'),
             ),
@@ -60,7 +60,7 @@ class MyHomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 _launchUrl(
-                    Uri.parse('https://github.com/sponsors/insideapp-oss'));
+                    Uri.parse('https://github.com/sponsors/insideapp-fr'));
               },
               child: const Text('Sponsor us on GitHub'),
             ),
